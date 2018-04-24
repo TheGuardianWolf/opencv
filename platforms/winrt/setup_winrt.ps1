@@ -52,6 +52,11 @@ Param(
     $ARCHITECTURES_IN = "x86",
 
     [parameter(Mandatory=$False)]
+    [Array]
+    [ValidateSet("ON","OFF")]
+    $XCOMPILE = "ON",
+
+    [parameter(Mandatory=$False)]
     [String]
     $TESTS = "None",
 
@@ -63,7 +68,11 @@ Param(
 
     [parameter(Mandatory=$False)]
     [String]
-    $INSTALL
+    $INSTALL,
+
+    [parameter(Mandatory=$False)]
+    [String]
+    $CONTRIB_MODULES_PATH = "None" 
 )
 
 
@@ -110,6 +119,21 @@ function Set-VS12()
         $batchFile = [System.IO.Path]::Combine($vs12comntools, "vsvars32.bat")
         Get-Batchfile $BatchFile
         [System.Console]::Title = "Visual Studio 2010 Windows PowerShell"
+     } Catch {
+        $ErrorMessage = $_.Exception.Message
+        L "Error: $ErrorMessage"
+        return $false
+     }
+     return $true
+}
+
+function Set-VS15()
+{
+    Try {
+        $vs15comntools = (Get-ChildItem env:VS150COMNTOOLS).Value
+        $batchFile = [System.IO.Path]::Combine($vs15comntools, "vsvars32.bat")
+        Get-Batchfile $BatchFile
+        [System.Console]::Title = "Visual Studio 2017 Windows PowerShell"
      } Catch {
         $ErrorMessage = $_.Exception.Message
         L "Error: $ErrorMessage"
@@ -205,7 +229,11 @@ Function Execute() {
     # Setting up Visual Studio variables to enable build
     $shouldBuid = $false
     If ($BUILD.IsPresent) {
-        $shouldBuild = Set-VS12
+        If($GENERATOR = "Visual Studio 15 2017") {
+		    $shouldBuild = Set-VS15
+    	} else {
+        	$shouldBuild = Set-VS12    
+    	}   
     }
 
     foreach($plat in $platforms) {
@@ -236,6 +264,7 @@ Function Execute() {
                 }
 
                 $path = "$SRC\bin\$plat\$vers\$arch"
+                $contrib_extraPath="$CONTRIB_MODULES_PATH"
 
                 L "-----------------------------------------------"
                 L "Target:"
@@ -245,6 +274,8 @@ Function Execute() {
                 L "    Architecture: $arch"
                 L "    Generator: $genName"
                 L "    Install Directory: $installPath"
+                L "    Contrib module Directory: $contrib_extraPath"
+                L "    Cross-Compile: $XCOMPILE"
 
                 # Delete target directory if exists to ensure that CMake cache is cleared out.
                 If (Test-Path $path) {
@@ -258,8 +289,13 @@ Function Execute() {
                 Push-Location -Path $path
 
                 L "Generating project:"
-                L "cmake -G $genName -DCMAKE_SYSTEM_NAME:String=$platName -DCMAKE_SYSTEM_VERSION:String=$vers -DCMAKE_VS_EFFECTIVE_PLATFORMS:String=$arch -DCMAKE_INSTALL_PREFIX:PATH=$installPath $SRC"
-                cmake -G $genName -DCMAKE_SYSTEM_NAME:String=$platName -DCMAKE_SYSTEM_VERSION:String=$vers -DCMAKE_VS_EFFECTIVE_PLATFORMS:String=$arch -DCMAKE_INSTALL_PREFIX:PATH=$installPath $SRC
+                if (Test-Path $contrib_extraPath) {
+                    L "cmake -G $genName -DCMAKE_CROSSCOMPILING=$XCOMPILE -DOPENCV_EXTRA_MODULES_PATH:PATH=$contrib_extraPath -DCMAKE_SYSTEM_NAME:String=$platName -DCMAKE_SYSTEM_VERSION:String=$vers -DCMAKE_VS_EFFECTIVE_PLATFORMS:String=$arch -DCMAKE_INSTALL_PREFIX:PATH=$installPath $SRC"
+                    cmake -G $genName -DCMAKE_CROSSCOMPILING=$XCOMPILE -DOPENCV_EXTRA_MODULES_PATH:PATH=$contrib_extraPath -DCMAKE_SYSTEM_NAME:String=$platName -DCMAKE_SYSTEM_VERSION:String=$vers -DCMAKE_VS_EFFECTIVE_PLATFORMS:String=$arch -DCMAKE_INSTALL_PREFIX:PATH=$installPath $SRC
+                } else {
+                    L "cmake -G $genName -DCMAKE_CROSSCOMPILING=$XCOMPILE -DCMAKE_SYSTEM_NAME:String=$platName -DCMAKE_SYSTEM_VERSION:String=$vers -DCMAKE_VS_EFFECTIVE_PLATFORMS:String=$arch -DCMAKE_INSTALL_PREFIX:PATH=$installPath $SRC"
+                    cmake -G $genName -DCMAKE_CROSSCOMPILING=$XCOMPILE -DCMAKE_SYSTEM_NAME:String=$platName -DCMAKE_SYSTEM_VERSION:String=$vers -DCMAKE_VS_EFFECTIVE_PLATFORMS:String=$arch -DCMAKE_INSTALL_PREFIX:PATH=$installPath $SRC
+                }
                 L "-----------------------------------------------"
 
                 # REFERENCE:
