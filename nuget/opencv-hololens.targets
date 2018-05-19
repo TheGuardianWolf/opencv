@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+
+    <Reference Include="opencv_aruco341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_aruco341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_bgsegm341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_bgsegm341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_bioinspired341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_bioinspired341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_calib3d341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_calib3d341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_ccalib341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_ccalib341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_core341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_core341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_datasets341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_datasets341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_dpm341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_dpm341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_face341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_face341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_features2d341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_features2d341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_flann341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_flann341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_fuzzy341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_fuzzy341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_hfs341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_hfs341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_highgui341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_highgui341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_imgcodecs341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_imgcodecs341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_img_hash341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_img_hash341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_imgproc341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_imgproc341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_line_descriptor341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_line_descriptor341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_ml341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_ml341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_objdetect341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_objdetect341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_optflow341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_optflow341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_phase_unwrapping341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_phase_unwrapping341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_photo341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_photo341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_plot341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_plot341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_reg341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_reg341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_rgbd341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_rgbd341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_saliency341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_saliency341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_shape341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_shape341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_stereo341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_stereo341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_stitching341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_stitching341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_structured_light341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_structured_light341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_surface_matching341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_surface_matching341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_tracking341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_tracking341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_video341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_video341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_videoio341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_videoio341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_videostab341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_videostab341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_xfeatures2d341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_xfeatures2d341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_ximgproc341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_ximgproc341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_xobjdetect341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_xobjdetect341.dll</HintPath>
+	</Reference>
+	<Reference Include="opencv_xphoto341">
+		<HintPath>$MSBuildThisFileDirectory..\..\lib\native\opencv_xphoto341.dll</HintPath>
+	</Reference>
+
+
+  </ItemGroup>
+
+</Project>

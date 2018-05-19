@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>      
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)..\..\lib\native;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_aruco341.dll;opencv_bgsegm341.dll;opencv_bioinspired341.dll;opencv_calib3d341.dll;opencv_ccalib341.dll;opencv_core341.dll;opencv_datasets341.dll;opencv_dpm341.dll;opencv_face341.dll;opencv_features2d341.dll;opencv_flann341.dll;opencv_fuzzy341.dll;opencv_hfs341.dll;opencv_highgui341.dll;opencv_imgcodecs341.dll;opencv_img_hash341.dll;opencv_imgproc341.dll;opencv_line_descriptor341.dll;opencv_ml341.dll;opencv_objdetect341.dll;opencv_optflow341.dll;opencv_phase_unwrapping341.dll;opencv_photo341.dll;opencv_plot341.dll;opencv_reg341.dll;opencv_rgbd341.dll;opencv_saliency341.dll;opencv_shape341.dll;opencv_stereo341.dll;opencv_stitching341.dll;opencv_structured_light341.dll;opencv_surface_matching341.dll;opencv_tracking341.dll;opencv_video341.dll;opencv_videoio341.dll;opencv_videostab341.dll;opencv_xfeatures2d341.dll;opencv_ximgproc341.dll;opencv_xobjdetect341.dll;opencv_xphoto341.dll;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+</Project>
